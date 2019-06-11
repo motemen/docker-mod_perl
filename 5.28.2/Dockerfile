@@ -17,5 +17,6 @@ RUN apt-get update && \
     make install && \
     cd .. && \
     rm -rf mod_perl-$MOD_PERL_VERSION mod_perl-$MOD_PERL_VERSION.tar.gz && \
-    apt-get remove -y perl ca-certificates curl build-essential && \
+    apt-get remove -yq perl ca-certificates curl build-essential && \
+    apt-get autoremove -yq && \
     rm -rf /var/lib/apt/lists/*
