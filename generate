@@ -1,7 +1,18 @@
+#!/bin/bash
+
+set -e
+
+perl_versions=(
+    5.28.2
+    5.30.0
+)
+
+for perl_version in "${perl_versions[@]}"; do
+    cat << 'DOCKERFILE' | sed "s/{{perl_version}}/$perl_version/" > "$perl_version/Dockerfile"
 FROM httpd:2.4.39
 
 ENV MOD_PERL_VERSION 2.0.10
-ENV PERL_VERSION 5.30.0
+ENV PERL_VERSION {{perl_version}}
 
 ENV PATH /opt/perl-$PERL_VERSION/bin:$PATH
 
@@ -20,3 +31,5 @@ RUN apt-get update && \
     apt-get remove -yq perl ca-certificates curl build-essential && \
     apt-get autoremove -yq && \
     rm -rf /var/lib/apt/lists/*
+DOCKERFILE
+done
