@@ -1,5 +1,5 @@
-docker-mod_perl
-===============
+mod_perl Docker image
+=====================
 
 Docker images for mod_perl.
 
