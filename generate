@@ -11,7 +11,7 @@ for perl_version in "${perl_versions[@]}"; do
     cat << 'DOCKERFILE' | sed "s/{{perl_version}}/$perl_version/" > "$perl_version/Dockerfile"
 FROM httpd:2.4.39
 
-ENV MOD_PERL_VERSION 2.0.10
+ENV MOD_PERL_VERSION 2.0.11
 ENV PERL_VERSION {{perl_version}}
 
 ENV PATH /opt/perl-$PERL_VERSION/bin:$PATH
