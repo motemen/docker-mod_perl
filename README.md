@@ -3,7 +3,7 @@ mod_perl Docker image
 
 Docker images for mod_perl.
 
-Built upon [httpd](https://hub.docker.com/_/httpd):2.4.39 and [mod_perl](https://perl.apache.org/) 2.0.10.
+Built upon [httpd](https://hub.docker.com/_/httpd):2.4.39 and [mod_perl](https://perl.apache.org/) 2.0.11.
 
 Tags
 ----
