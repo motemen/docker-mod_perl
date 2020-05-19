@@ -1,0 +1,27 @@
+on:
+  push:
+    branches:
+      - master
+
+name: Tag
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: |
+          git fetch --tags
+
+      - run: |
+          httpd_version=$(cat Dockerfile | perl -ne 'print $1 if /^FROM httpd:([0-9.]+)/')
+          mod_perl_version=$(cat Dockerfile | perl -ne 'print $1 if /^ENV MOD_PERL_VERSION ([0-9.]+)/')
+          tag="$httpd_version-$mod_perl_version"
+          echo "tag: $tag"
+          if ! git rev-parse --quiet --verify "refs/tags/$tag" > /dev/null; then
+            git tag "$tag"
+            git push --tags
+          fi
+
+
