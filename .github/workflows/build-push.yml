@@ -53,8 +53,8 @@ jobs:
         with:
           context: ./${{matrix.perl_version}}
           tags: |
-            ${{matrix.perl_version}}
-            ${{matrix.perl_version}}-${{steps.versions.outputs.httpd_version}}
-            ${{matrix.perl_version}}-${{steps.versions.outputs.httpd_version}}-${{steps.versions.outputs.mod_perl_version}}
+            ghcr.io/motemen/mod_perl:${{matrix.perl_version}}
+            ghcr.io/motemen/mod_perl:${{matrix.perl_version}}-${{steps.versions.outputs.httpd_version}}
+            ghcr.io/motemen/mod_perl:${{matrix.perl_version}}-${{steps.versions.outputs.httpd_version}}-${{steps.versions.outputs.mod_perl_version}}
 
 
