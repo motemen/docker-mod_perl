@@ -41,7 +41,7 @@ jobs:
           restore-keys: |
             wip-buildx-${{ runner.os }}-
 
-      - name: extract versions
+      - name: Extract versions
         id: versions
         run: |
           httpd_version=$(cat Dockerfile | perl -ne 'print $1 if /^FROM httpd:([0-9.]+)/')
@@ -52,6 +52,7 @@ jobs:
       - uses: docker/build-push-action@v2
         with:
           context: ./${{matrix.perl_version}}
+          push: true
           tags: |
             ghcr.io/motemen/mod_perl:${{matrix.perl_version}}
             ghcr.io/motemen/mod_perl:${{matrix.perl_version}}-${{steps.versions.outputs.httpd_version}}
