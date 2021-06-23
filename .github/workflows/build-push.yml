@@ -19,7 +19,7 @@ jobs:
 
       - id: set-matrix
         run: |
-          echo "::set-output name=matrix::$(find -s */Dockerfile -exec sh -c 'basename $(dirname \{})' \; | jq -nR '{perl_version: [inputs]}')"
+          echo "::set-output name=matrix::$(find */Dockerfile -exec sh -c 'basename $(dirname \{})' \; | sort | jq -nR '{perl_version: [inputs]}')"
 
   build:
     needs: list-versions
