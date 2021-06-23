@@ -45,10 +45,10 @@ jobs:
 
       - uses: docker/build-push-action@v2
         with:
-          context: ./${{perl_version}}
+          context: ./${{matrix.perl_version}}
           tags: |
-            ${{perl_version}}
-            ${{perl_version}}-${{steps.versions.outputs.httpd_version}}
-            ${{perl_version}}-${{steps.versions.outputs.httpd_version}}-${{steps.versions.outputs.mod_perl_version}}
+            ${{matrix.perl_version}}
+            ${{matrix.perl_version}}-${{steps.versions.outputs.httpd_version}}
+            ${{matrix.perl_version}}-${{steps.versions.outputs.httpd_version}}-${{steps.versions.outputs.mod_perl_version}}
 
 
