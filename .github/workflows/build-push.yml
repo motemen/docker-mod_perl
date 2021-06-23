@@ -49,6 +49,12 @@ jobs:
           echo "::set-output name=httpd_version::$httpd_version"
           echo "::set-output name=mod_perl_version::$mod_perl_version"
 
+      - uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
       - uses: docker/build-push-action@v2
         with:
           context: ./${{matrix.perl_version}}
