@@ -1,4 +1,4 @@
-FROM httpd:2.4.59
+FROM httpd:2.4.61
 
 ARG PERL_VERSION=5.36.3
 
