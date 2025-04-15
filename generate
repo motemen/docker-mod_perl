@@ -15,6 +15,7 @@ perl_versions=(
     5.36.3
     5.38.0
     5.38.2
+    5.40.2
 )
 
 for perl_version in "${perl_versions[@]}"; do
