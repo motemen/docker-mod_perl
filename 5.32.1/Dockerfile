@@ -18,7 +18,7 @@ RUN apt-get update && \
     tar xzf mod_perl-$MOD_PERL_VERSION.tar.gz && \
     cd mod_perl-$MOD_PERL_VERSION && \
     /opt/perl-$PERL_VERSION/bin/perl Makefile.PL MP_NO_THREADS=1 && \
-    make -j "$(nproc)" && \
+    make MODPERL_RANLIB=":" -j "$(nproc)" && \
     make install && \
     cd .. && \
     rm -rf mod_perl-$MOD_PERL_VERSION mod_perl-$MOD_PERL_VERSION.tar.gz && \
