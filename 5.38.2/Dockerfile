@@ -12,7 +12,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 RUN apt-get update && \
     apt-get install -yq --no-install-recommends perl ca-certificates curl build-essential libapr1-dev libaprutil1-dev && \
-    curl -sfL https://raw.githubusercontent.com/tokuhirom/Perl-Build/master/perl-build | perl - $PERL_VERSION /opt/perl-$PERL_VERSION/ -Duseshrplib -j "$(nproc)" && \
+    curl -sfL https://raw.githubusercontent.com/tokuhirom/Perl-Build/e56e4e44816cb1f9912bf560cc8b86bff609da68/perl-build | perl - $PERL_VERSION /opt/perl-$PERL_VERSION/ -Duseshrplib -j "$(nproc)" && \
     curl -sfLO https://archive.apache.org/dist/perl/mod_perl-$MOD_PERL_VERSION.tar.gz && \
     echo "$MOD_PERL_CHECKSUM *mod_perl-$MOD_PERL_VERSION.tar.gz" | sha256sum -c && \
     tar xzf mod_perl-$MOD_PERL_VERSION.tar.gz && \
