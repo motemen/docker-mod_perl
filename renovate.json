@@ -1,5 +1,12 @@
 {
   "extends": [
     "config:recommended"
+  ],
+  "rebaseWhen": "never",
+  "packageRules": [
+    {
+      "matchManagers": ["github-actions"],
+      "rangeStrategy": "pin"
+    }
   ]
 }
