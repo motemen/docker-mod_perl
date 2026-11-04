@@ -6,7 +6,7 @@ workflows:
     '.github/workflows/build-push.yml':
         - 'actions/checkout@v7.0.0'
         - 'docker/build-push-action@v7.0.0'
-        - 'docker/login-action@v4.0.0'
+        - 'docker/login-action@v4.7.0'
         - 'docker/setup-buildx-action@master'
         - 'docker/setup-qemu-action@v4.0.0'
     '.github/workflows/tag.yaml':
@@ -22,9 +22,9 @@ dependencies:
         commit: 'sha1-d08e5c354a6adb9ed34480a06d141179aa583294'
         owner_id: 5429470
         repo_id: 241092383
-    'docker/login-action@v4.0.0':
-        ref: 'v4.0.0'
-        commit: 'sha1-b45d80f862d83dbcd57f89517bcf500b2ab88fb2'
+    'docker/login-action@v4.7.0':
+        ref: 'v4.7.0'
+        commit: 'sha1-81c6f93d4bc991e510b342a00b419b3bb4efc5c6'
         owner_id: 5429470
         repo_id: 287743349
     'docker/setup-buildx-action@master':
